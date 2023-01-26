@@ -1,0 +1,38 @@
+<div class="container content">
+    <a name="content"></a>
+    <div>
+        <p class="h2">Alumnos</p> 
+    </div>
+    <div class="row">
+        <div class="col-sm-4 my-4" *ngFor="let estudiante of listaEstudiantes">
+            <div class="card border-info" *ngIf="estudiante.promedio >= 6" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{estudiante.nombre}}</h5>
+                    <p class="card-text">{{estudiante.curso}}</p>
+                    <p class="card-text">Promedio: {{estudiante.promedio}}</p>
+                    <p class="card-text">Inicio Curso: </p>
+                    <p class="card-text">{{estudiante.fechaInicioCurso | date:'shortDate'}}</p>
+                    <p class="card-text">Fin Curso: </p>
+                    <p class="card-text">{{estudiante.fechaFinCurso | date:'shortDate'}}</p>
+                    <button class="btn btn-primary" [disabled]="estudiante.promedio <= 6">Inscribir siguiente curso</button>
+                </div>
+
+                
+            </div>
+            <div class="card border-danger" *ngIf="estudiante.promedio <= 6" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{estudiante.nombre}}</h5>
+                    <p class="card-text">{{estudiante.curso}}</p>
+                    <p class="card-text">Promedio: {{estudiante.promedio}}</p>
+                    <p class="card-text">Inicio Curso: </p>
+                    <p class="card-text">{{estudiante.fechaInicioCurso | date:'shortDate'}}</p>
+                    <p class="card-text">Fin Curso: </p>
+                    <p class="card-text">{{estudiante.fechaFinCurso | date:'shortDate'}}</p>
+                    <button class="btn btn-primary" [disabled]="estudiante.promedio <= 6">Inscribir siguiente curso</button>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
